@@ -33,15 +33,18 @@ public class LessonDBHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    // 创建数据库表
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
     }
 
+    // 处理数据库版本升级
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    // 查询数据库内容并输出到日志
     public void logDatabaseContent() {
         SQLiteDatabase db = getReadableDatabase();
         String[] projection = {
@@ -52,6 +55,7 @@ public class LessonDBHelper extends SQLiteOpenHelper {
         };
 
         // 查询数据库中的信息
+        // Cursor 是 Android 中用于遍历和访问数据库查询结果的接口。可以将其想象成一个“指针”，逐行指向数据库查询结果中的数据
         Cursor cursor = db.query(TABLE_LESSON, projection, null, null, null, null, null);
 
         // 遍历查询结果，并通过日志输出

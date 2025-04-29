@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.weather.R;
 import com.example.weather.ui.placesearch.PlaceSearchActivity;
 
+// 视频启动页
 public class Gold extends AppCompatActivity {
     private IVideoView videoView;
     private Button btnSkip;

@@ -7,6 +7,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
+// 封装 Retrofit 请求，将回调式 API 转换为协程挂起函数，简化异步调用。
 object WeatherNetwork {
 
     private val placeService = ServiceCreator.create<PlaceService>()
@@ -37,6 +38,4 @@ object WeatherNetwork {
             })
         }
     }
-
-
 }

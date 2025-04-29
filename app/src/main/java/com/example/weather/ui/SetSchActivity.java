@@ -113,11 +113,11 @@ public class SetSchActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
             mywebLayout.addView(web);
         }
-
+        // WebView也就是我们熟悉的“网络视图”，能加载并显示网页，可以将其视为一个浏览器。主要用于展示网络请求后的内容，就是将网络地址请求的内容展示在里面。
         String url = "http://219.216.96.4/eams/homeExt.action";
         WebSettings settings = web.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
+        settings.setJavaScriptEnabled(true);    // 允许执行 JavaScript 脚本
+        settings.setDomStorageEnabled(true);    // 支持网页使用 localStorage 或 sessionStorage，适用于需要登录的页面。
         settings.setPluginState(WebSettings.PluginState.ON);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setAllowFileAccess(true);
@@ -128,6 +128,7 @@ public class SetSchActivity extends AppCompatActivity {
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         settings.setCacheMode(settings.LOAD_NO_CACHE); // 不使用缓存
 
+        // webview加载网络，是需要联网的，这是时候就需要一个联网的权限： <uses-permission android:name="android.permission.INTERNET"/>
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             settings.setMixedContentMode(settings.MIXED_CONTENT_COMPATIBILITY_MODE);
         }

@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.weather.ui.weather.WeatherActivity;
 
+// 获取设备地理位置（经纬度）并转换为省份信息
 public class GPSUtils {
 
     private static GPSUtils instance;
@@ -85,8 +86,6 @@ public class GPSUtils {
                     LOCATION_CODE
             );
         }
-
-
         return p;
     }
 

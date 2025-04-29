@@ -15,10 +15,10 @@ public class RealtimeWeatherView extends View {
 
     private Paint paint = new Paint();
 
-    private Bitmap aqBitmap;
-    private Bitmap tempBitmap;
-    private Bitmap wsBitmap;
-    private Bitmap humBitmap;
+    private Bitmap aqBitmap;    // 空气质量图标
+    private Bitmap tempBitmap;  // 温度图标
+    private Bitmap wsBitmap;    // 风向图标
+    private Bitmap humBitmap;   // 湿度图标
 
     private final int defaultWidth = 610;
     private final int defaultHeight = 500;
@@ -77,6 +77,7 @@ public class RealtimeWeatherView extends View {
         canvas.drawText(temperature + "°", 150f, 250f, paint);
         paint.setTextSize(40f);
         canvas.drawText(skycon, 450f, 250f, paint);
+
         canvas.drawBitmap(aqBitmap, 170f, 305f, paint);
         paint.setTextSize(38f);
         canvas.drawText("空气指数:   " + airQuality, 220f, 335f, paint);

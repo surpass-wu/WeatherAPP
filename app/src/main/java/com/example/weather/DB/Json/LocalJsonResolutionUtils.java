@@ -16,6 +16,7 @@ public class LocalJsonResolutionUtils {
      * @param fileName
      * @return
      */
+    // 文件读取：从assets加载JSON
     public static String getJson(Context context, String fileName){
         StringBuilder stringBuilder = new StringBuilder();
         //获得assets资源管理器
@@ -40,6 +41,7 @@ public class LocalJsonResolutionUtils {
      * @param type
      * @return
      */
+    // 数据转换：Gson反序列化
     public  static <T> T JsonToObject(String json, Class<T> type) {
         Gson gson =new Gson();
         return gson.fromJson(json, type);

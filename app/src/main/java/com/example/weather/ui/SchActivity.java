@@ -26,6 +26,7 @@ import com.google.android.material.card.MaterialCardView;
 import java.util.Calendar;
 import java.util.Locale;
 
+// 课程表管理界面
 public class SchActivity extends AppCompatActivity {
 
     private TextView scheduleTextView;
@@ -40,6 +41,7 @@ public class SchActivity extends AppCompatActivity {
 
     private Button backButton , lastdayBtn , nextdayBtn , setButton;
 
+    // 初始化整个界面，设置按钮点击事件和日历选择监听
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,7 +146,7 @@ public class SchActivity extends AppCompatActivity {
         loadTodayLessons();
     }
 
-
+    // 生成当前日期的文字描述（如“2023年10月5日 星期三”）
     private String getTodaySchedule() {
         // 获取今日日期
         year = calendar.get(Calendar.YEAR);
@@ -158,6 +160,7 @@ public class SchActivity extends AppCompatActivity {
         return String.format(Locale.getDefault(), "%d年%d月%d日 %s", year, month, dayOfMonth, dayOfWeekText);
     }
 
+    // 从数据库加载用户选择的日期的课程，并显示在界面上
     private void loadTodayLessons() {
         lessonContainer.removeAllViews(); // 清空之前加载的课程
 
@@ -275,8 +278,9 @@ public class SchActivity extends AppCompatActivity {
         }
     }
 
-
+    // 点击“+”按钮时，弹出对话框让用户填写新课程信息，并保存到数据库。
     public void onAddLessonClick(View view) {
+        // AlertDialog：Android 系统提供的弹窗组件，用于显示临时界面（比如提示、输入框等）
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_lesson, null);
         builder.setView(dialogView);
